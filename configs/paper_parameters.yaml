@@ -1,0 +1,60 @@
+random_seed: 0
+
+dataset:
+  development_sequences:
+    - CP-I0-01
+    - CP-I0-02
+    - CP-I1-01
+    - CP-I1-02
+    - CP-I2-01
+    - CP-I2-02
+    - CP-I3-01
+    - CP-I3-02
+  test_sequences:
+    - CP-I0-03
+    - CP-I1-03
+    - CP-I2-03
+    - CP-I3-03
+
+rectification:
+  rotation_convention: matlab-transpose
+  output_coordinates: full-frame rectified image coordinates
+
+detection:
+  model: YOLOv12-L
+  image_size_px: 1280
+  confidence_threshold: 0.10
+  nms_iou_threshold: 0.50
+  input_domain: raw camera images
+  output_domain: rectified full-frame coordinates
+
+tracking:
+  selected_tracker: ByteTrack
+  track_threshold: 0.105
+  match_threshold: 0.995
+  track_buffer_frames: 15
+
+fvsa:
+  minimum_temporal_overlap_frames: 3
+  primary_threshold: 0.60
+  secondary_threshold: 0.12
+  framevote_length_normalization: 12
+  affinity_fusion_weights: [0.55, 0.35, 0.10]
+
+hrtr:
+  segment_reliability_threshold: 0.80
+  observation_reliability_threshold: 0.45
+  depth_gate: "max(800 mm, 4 * development-group depth IQR)"
+  temporal_radius_frames: 2
+  temporal_decay: 1.5
+  raw_fusion_weight: "0.55 + 0.35 * observation reliability"
+  maximum_completed_internal_gap_frames: 2
+  maximum_endpoint_separation_frames: 3
+
+evaluation:
+  image_iou_threshold: 0.50
+  point_3d_distance_threshold_mm: 25.0
+  metrics_2d: [HOTA, AssA, IDF1, MOTA, IDSW]
+  metrics_3d: [HOTA_3D, AssA_3D, IDF1_3D, MOTA_3D, IDSW, RMSE, MAE, MedAE, Jitter, Coverage]
+  coverage_denominator_test_points: 43458
+  pseudo_3d_reference: triangulated synchronized annotation centers

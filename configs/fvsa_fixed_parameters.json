@@ -1,0 +1,12 @@
+{
+  "selection_split": "training/development (-01 and -02 sequences only)",
+  "selection_objective": "uniform F0.5 for all methods",
+  "selected_params": {
+    "FrameVote": {"threshold": 0.60, "secondary_threshold": 0.0},
+    "Epipolar": {"threshold": 0.60, "secondary_threshold": 0.0},
+    "EpiSpatial": {"threshold": 0.60, "secondary_threshold": 0.0},
+    "EpiMotion": {"threshold": 0.60, "secondary_threshold": 0.0},
+    "EpiRank": {"threshold": 0.60, "secondary_threshold": 0.0},
+    "Proposed": {"threshold": 0.60, "secondary_threshold": 0.12}
+  }
+}

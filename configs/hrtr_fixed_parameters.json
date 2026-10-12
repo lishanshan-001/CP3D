@@ -1,0 +1,19 @@
+{
+  "selection_split": "development (-01 and -02 sequences only)",
+  "rmse_reliable_threshold_mm": 8.199974368490082,
+  "quality_rows": [
+    {"method": "LengthOnly", "threshold": 0.20},
+    {"method": "GeoOnly", "threshold": 0.65},
+    {"method": "GeoConf", "threshold": 0.20},
+    {"method": "ProposedTQS", "threshold": 0.80}
+  ],
+  "reliability_guided_parameters": {
+    "frame_reliability_threshold": 0.45,
+    "depth_gate_mm": "max(800, 4 * development illumination-group depth IQR)",
+    "reference_fps": 20,
+    "temporal_radius_frames": 2,
+    "temporal_decay_frames": 1.5,
+    "raw_fusion_weight": "0.55 + 0.35 * observation reliability",
+    "short_gap_completion_max_gap_frames": 3
+  }
+}

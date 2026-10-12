@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript."
+title: "CP3D reliability-guided stereo trajectory reconstruction"
+type: software
+version: 1.0.0
+date-released: 2026-08-02
+authors:
+  - family-names: Li
+    given-names: Shanshan
+  - family-names: Zhang
+    given-names: Zhe
+  - family-names: Yang
+    given-names: Minglai
+  - family-names: Sun
+    given-names: Chuanheng
+  - family-names: Li
+    given-names: Wenyong
+preferred-citation:
+  type: article
+  title: "A reliability-guided stereo vision framework for three-dimensional flight trajectory reconstruction of Conogethes punctiferalis under nocturnal conditions"
+  authors:
+    - family-names: Li
+      given-names: Shanshan
+    - family-names: Zhang
+      given-names: Zhe
+    - family-names: Yang
+      given-names: Minglai
+    - family-names: Sun
+      given-names: Chuanheng
+    - family-names: Li
+      given-names: Wenyong
+  year: 2026
